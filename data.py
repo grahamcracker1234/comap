@@ -33,14 +33,31 @@ def participationOverTime():
 
 def participationHardModeOverTime():
     """
-    This function will graph participation over time
+    This function will graph hard mode participation over time
     """
     # First thing, obtain a list with participation per day and graph it
     participation_count = []
     for entry in array_data:
         participation_count.append(entry[5])
 
-    num_days = list(range(1, len(array_data)+1))
+    num_days = list(range(202, 202+len(array_data)+1))
+
+    plt.plot(num_days,participation_count)
+    plt.xlabel("Days")
+    plt.ylabel("Hard Mode Participation Count")
+    plt.title("Hard Mode Participation Count over time")
+    plt.show()
+
+def participationProportionOverTime():
+    """
+    This function will graph hardmode/normal participation over time
+    """
+    # First thing, obtain a list with participation per day and graph it
+    participation_count = []
+    for entry in array_data:
+        participation_count.append(entry[5]/entry[4])
+
+    num_days = list(range(202, 202+len(array_data)))
 
     plt.plot(num_days,participation_count)
     plt.xlabel("Days")
@@ -203,7 +220,8 @@ def successRatesPerDay():
 def main():
     # Test functions
     # participationOverTime()
-    participationHardModeOverTime()
+    # participationHardModeOverTime()
+    participationProportionOverTime()
     # participationPerDay()
     # successRatesPerDay()
     pass
