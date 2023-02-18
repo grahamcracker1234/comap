@@ -23,12 +23,29 @@ def participationOverTime():
     for entry in array_data:
         participation_count.append(entry[4])
 
-    num_days = list(range(1, 357))
+    num_days = list(range(1, len(array_data)+1))
 
     plt.plot(num_days,participation_count)
     plt.xlabel("Days")
     plt.ylabel("Participation Count")
     plt.title("Participation Count over time")
+    plt.show()
+
+def participationHardModeOverTime():
+    """
+    This function will graph participation over time
+    """
+    # First thing, obtain a list with participation per day and graph it
+    participation_count = []
+    for entry in array_data:
+        participation_count.append(entry[5])
+
+    num_days = list(range(1, len(array_data)+1))
+
+    plt.plot(num_days,participation_count)
+    plt.xlabel("Days")
+    plt.ylabel("Hard Mode Participation Count")
+    plt.title("Hard Mode Participation Count over time")
     plt.show()
 
 def participationPerDay():
@@ -74,70 +91,70 @@ def successRatesPerDay():
                              "Saturday": {"1": 0, "2": 0, "3": 0, "4": 0, "5": 0, "6": 0, "X": 0},
                              "Sunday": {"1": 0, "2": 0, "3": 0, "4": 0, "5": 0, "6": 0, "X": 0}}
 
-    for i in range(len(array_data)):
-        if i % 7 == 0:
+    for e in array_data:
+        if e[1] == "Friday":
             # Friday
-            participation_per_day["Friday"]["1"] += array_data[i][6]
-            participation_per_day["Friday"]["2"] += array_data[i][7]
-            participation_per_day["Friday"]["3"] += array_data[i][8]
-            participation_per_day["Friday"]["4"] += array_data[i][9]
-            participation_per_day["Friday"]["5"] += array_data[i][10]
-            participation_per_day["Friday"]["6"] += array_data[i][11]
-            participation_per_day["Friday"]["X"] += array_data[i][12]
-        elif i % 7 == 1:
+            participation_per_day["Friday"]["1"] += e[6]
+            participation_per_day["Friday"]["2"] += e[7]
+            participation_per_day["Friday"]["3"] += e[8]
+            participation_per_day["Friday"]["4"] += e[9]
+            participation_per_day["Friday"]["5"] += e[10]
+            participation_per_day["Friday"]["6"] += e[11]
+            participation_per_day["Friday"]["X"] += e[12]
+        elif e[1] == "Saturday":
             # Saturday
-            participation_per_day["Saturday"]["1"] += array_data[i][6]
-            participation_per_day["Saturday"]["2"] += array_data[i][7]
-            participation_per_day["Saturday"]["3"] += array_data[i][8]
-            participation_per_day["Saturday"]["4"] += array_data[i][9]
-            participation_per_day["Saturday"]["5"] += array_data[i][10]
-            participation_per_day["Saturday"]["6"] += array_data[i][11]
-            participation_per_day["Saturday"]["X"] += array_data[i][12]
-        elif i % 7 == 2:
+            participation_per_day["Saturday"]["1"] += e[6]
+            participation_per_day["Saturday"]["2"] += e[7]
+            participation_per_day["Saturday"]["3"] += e[8]
+            participation_per_day["Saturday"]["4"] += e[9]
+            participation_per_day["Saturday"]["5"] += e[10]
+            participation_per_day["Saturday"]["6"] += e[11]
+            participation_per_day["Saturday"]["X"] += e[12]
+        elif e[1] == "Sunday":
             # Sunday
-            participation_per_day["Sunday"]["1"] += array_data[i][6]
-            participation_per_day["Sunday"]["2"] += array_data[i][7]
-            participation_per_day["Sunday"]["3"] += array_data[i][8]
-            participation_per_day["Sunday"]["4"] += array_data[i][9]
-            participation_per_day["Sunday"]["5"] += array_data[i][10]
-            participation_per_day["Sunday"]["6"] += array_data[i][11]
-            participation_per_day["Sunday"]["X"] += array_data[i][12]
-        elif i % 7 == 3:
+            participation_per_day["Sunday"]["1"] += e[6]
+            participation_per_day["Sunday"]["2"] += e[7]
+            participation_per_day["Sunday"]["3"] += e[8]
+            participation_per_day["Sunday"]["4"] += e[9]
+            participation_per_day["Sunday"]["5"] += e[10]
+            participation_per_day["Sunday"]["6"] += e[11]
+            participation_per_day["Sunday"]["X"] += e[12]
+        elif e[1] == "Monday":
             # Monday
-            participation_per_day["Monday"]["1"] += array_data[i][6]
-            participation_per_day["Monday"]["2"] += array_data[i][7]
-            participation_per_day["Monday"]["3"] += array_data[i][8]
-            participation_per_day["Monday"]["4"] += array_data[i][9]
-            participation_per_day["Monday"]["5"] += array_data[i][10]
-            participation_per_day["Monday"]["6"] += array_data[i][11]
-            participation_per_day["Monday"]["X"] += array_data[i][12]
-        elif i % 7 == 4:
+            participation_per_day["Monday"]["1"] += e[6]
+            participation_per_day["Monday"]["2"] += e[7]
+            participation_per_day["Monday"]["3"] += e[8]
+            participation_per_day["Monday"]["4"] += e[9]
+            participation_per_day["Monday"]["5"] += e[10]
+            participation_per_day["Monday"]["6"] += e[11]
+            participation_per_day["Monday"]["X"] += e[12]
+        elif e[1] == "Tuesday":
             # Tuesday
-            participation_per_day["Tuesday"]["1"] += array_data[i][6]
-            participation_per_day["Tuesday"]["2"] += array_data[i][7]
-            participation_per_day["Tuesday"]["3"] += array_data[i][8]
-            participation_per_day["Tuesday"]["4"] += array_data[i][9]
-            participation_per_day["Tuesday"]["5"] += array_data[i][10]
-            participation_per_day["Tuesday"]["6"] += array_data[i][11]
-            participation_per_day["Tuesday"]["X"] += array_data[i][12]
-        elif i % 7 == 5:
+            participation_per_day["Tuesday"]["1"] += e[6]
+            participation_per_day["Tuesday"]["2"] += e[7]
+            participation_per_day["Tuesday"]["3"] += e[8]
+            participation_per_day["Tuesday"]["4"] += e[9]
+            participation_per_day["Tuesday"]["5"] += e[10]
+            participation_per_day["Tuesday"]["6"] += e[11]
+            participation_per_day["Tuesday"]["X"] += e[12]
+        elif e[1] == "Wednesday":
             # Wednesday
-            participation_per_day["Wednesday"]["1"] += array_data[i][6]
-            participation_per_day["Wednesday"]["2"] += array_data[i][7]
-            participation_per_day["Wednesday"]["3"] += array_data[i][8]
-            participation_per_day["Wednesday"]["4"] += array_data[i][9]
-            participation_per_day["Wednesday"]["5"] += array_data[i][10]
-            participation_per_day["Wednesday"]["6"] += array_data[i][11]
-            participation_per_day["Wednesday"]["X"] += array_data[i][12]
-        elif i % 7 == 6:
+            participation_per_day["Wednesday"]["1"] += e[6]
+            participation_per_day["Wednesday"]["2"] += e[7]
+            participation_per_day["Wednesday"]["3"] += e[8]
+            participation_per_day["Wednesday"]["4"] += e[9]
+            participation_per_day["Wednesday"]["5"] += e[10]
+            participation_per_day["Wednesday"]["6"] += e[11]
+            participation_per_day["Wednesday"]["X"] += e[12]
+        elif e[1] == "Thursday":
             # Thursday
-            participation_per_day["Thursday"]["1"] += array_data[i][6]
-            participation_per_day["Thursday"]["2"] += array_data[i][7]
-            participation_per_day["Thursday"]["3"] += array_data[i][8]
-            participation_per_day["Thursday"]["4"] += array_data[i][9]
-            participation_per_day["Thursday"]["5"] += array_data[i][10]
-            participation_per_day["Thursday"]["6"] += array_data[i][11]
-            participation_per_day["Thursday"]["X"] += array_data[i][12]
+            participation_per_day["Thursday"]["1"] += e[6]
+            participation_per_day["Thursday"]["2"] += e[7]
+            participation_per_day["Thursday"]["3"] += e[8]
+            participation_per_day["Thursday"]["4"] += e[9]
+            participation_per_day["Thursday"]["5"] += e[10]
+            participation_per_day["Thursday"]["6"] += e[11]
+            participation_per_day["Thursday"]["X"] += e[12]
 
     N = 7
     ind = np.arange(N)  # the x locations for the groups
@@ -159,36 +176,36 @@ def successRatesPerDay():
     sixth_tries = [participation_per_day["Monday"]["6"], participation_per_day["Tuesday"]["6"], participation_per_day["Wednesday"]["6"], participation_per_day["Thursday"]["6"], participation_per_day["Friday"]["6"], participation_per_day["Saturday"]["6"], participation_per_day["Sunday"]["6"]]
     rects6 = ax.bar(ind+width*5, sixth_tries, width, color='brown')
     none_tries = [participation_per_day["Monday"]["X"], participation_per_day["Tuesday"]["X"], participation_per_day["Wednesday"]["X"], participation_per_day["Thursday"]["X"], participation_per_day["Friday"]["X"], participation_per_day["Saturday"]["X"], participation_per_day["Sunday"]["X"]]
-    rects7 = ax.bar(ind+width*6, first_tries, width, color='black')
+    rects7 = ax.bar(ind+width*6, none_tries, width, color='black')
 
     ax.set_ylabel('Success Count per day')
     ax.set_xticks(ind+width)
     ax.set_xticklabels(("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"))
     ax.legend( (rects1[0], rects2[0], rects3[0], rects4[0], rects5[0], rects6[0], rects7[0]), ("1st Try", "2nd Try", "3rd Try", "4th Try", "5th Try", "6th Try", "7+ Try") )
 
-    # def autolabel(rects):
-    #     for rect in rects:
-    #         h = rect.get_height()
-    #         print(dir(ax.text(rect.get_x()+rect.get_width()/2., 1.05*h, '%d'%int(h),
-    #                 ha='center', va='bottom')))
-    #         return
+    def autolabel(rects):
+        for rect in rects:
+            h = rect.get_height()
+            ax.text(rect.get_x()+rect.get_width()/2., 1*h, '%d'%int(h),
+                    ha='center', va='bottom', fontsize = 8)
 
 
-    # autolabel(rects1)
-    # autolabel(rects2)
-    # autolabel(rects3)
-    # autolabel(rects4)
-    # autolabel(rects5)
-    # autolabel(rects6)
-    # autolabel(rects7)
+    autolabel(rects1)
+    autolabel(rects2)
+    autolabel(rects3)
+    autolabel(rects4)
+    autolabel(rects5)
+    autolabel(rects6)
+    autolabel(rects7)
 
-    # plt.show()
+    plt.show()
 
 def main():
     # Test functions
     # participationOverTime()
+    participationHardModeOverTime()
     # participationPerDay()
-    successRatesPerDay()
+    # successRatesPerDay()
     pass
 
 if __name__ == "__main__":
